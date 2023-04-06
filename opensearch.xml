@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>hhhhe.的小站</ShortName>
+  <Description>Search hhhhe.的小站</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://cuzmarlboro.github.io/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://cuzmarlboro.github.io/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://cuzmarlboro.github.io/opensearch.xml" />
+  <moz:SearchForm>https://cuzmarlboro.github.io/</moz:SearchForm>
+</OpenSearchDescription>
