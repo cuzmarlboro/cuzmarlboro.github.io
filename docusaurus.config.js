@@ -18,10 +18,10 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   plugins: [],
   i18n: {
-    // defaultLocale: "en",
-    // locales: ["en"],
-    defaultLocale: "zh-Hans",
-    locales: ["zh-Hans"],
+    defaultLocale: "en",
+    locales: ["en"],
+    // defaultLocale: "zh-Hans",
+    // locales: ["zh-Hans"],
   },
 
   presets: [
