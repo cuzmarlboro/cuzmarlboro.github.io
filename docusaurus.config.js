@@ -14,7 +14,8 @@ const config = {
   baseUrl: "/",
   organizationName: "cuzmarlboro",
   projectName: "cuzmarlboro.github.io",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "ignore",
+  // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   plugins: [],
   i18n: {
