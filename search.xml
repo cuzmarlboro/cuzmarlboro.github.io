@@ -4,17 +4,23 @@
   
     
     <entry>
-      <title>a</title>
-      <link href="/2024/01/12/a/"/>
-      <url>/2024/01/12/a/</url>
+      <title>解决 replace( ) 只能替换一次</title>
+      <link href="/2019/12/26/%E8%A7%A3%E5%86%B3%20replace(%20)%20%E5%8F%AA%E8%83%BD%E6%9B%BF%E6%8D%A2%E4%B8%80%E6%AC%A1/"/>
+      <url>/2019/12/26/%E8%A7%A3%E5%86%B3%20replace(%20)%20%E5%8F%AA%E8%83%BD%E6%9B%BF%E6%8D%A2%E4%B8%80%E6%AC%A1/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="1-replace-介绍"><a href="#1-replace-介绍" class="headerlink" title="1 replace()介绍"></a>1 replace()介绍</h2><p>● replace() 方法会对匹配到的第一个字串替换，如果需要替换所有，则需要使用正则<br>● replace() 不会修改原字符串，而是会返回一个新的字符串</p><h2 id="2-替换所有解决方案（利用正则）"><a href="#2-替换所有解决方案（利用正则）" class="headerlink" title="2 替换所有解决方案（利用正则）"></a>2 替换所有解决方案（利用正则）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"We are happy."</span></span><br><span class="line"><span class="comment">//替换一个</span></span><br><span class="line"><span class="keyword">let</span> str2 = str.replace(<span class="string">' '</span>,<span class="string">'?'</span>)  <span class="comment">//We?are happy.</span></span><br><span class="line"><span class="comment">//替换所有</span></span><br><span class="line"><span class="keyword">let</span> str3 = str.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">' '</span>,<span class="string">'g'</span>),<span class="string">'?'</span>) <span class="comment">//We?are?happy.</span></span><br></pre></td></tr></table></figure><h2 id="3-replaceAll-方法（ES2021）"><a href="#3-replaceAll-方法（ES2021）" class="headerlink" title="3 replaceAll 方法（ES2021）"></a>3 replaceAll 方法（ES2021）</h2><p>replaceAll() ，可以对调用它的字符串进行全局替换； 接收两个参数： 第一个参数是字符串/正则（若传入正则，须是全局的）， 第二个参数是需要替换的新字符串； 返回一个新字符串；</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'2-4-6-8-10'</span></span><br><span class="line"><span class="keyword">const</span> newStr = str.replaceAll(<span class="string">'-'</span>, <span class="string">'+'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(newStr) <span class="comment">// 2+4+6+8+10</span></span><br></pre></td></tr></table></figure>]]></content>
       
+      
+      <categories>
+          
+          <category> 前端搬砖 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> 111 </tag>
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -23,23 +29,23 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2024/01/12/hello-world/"/>
-      <url>/2024/01/12/hello-world/</url>
+      <title>JavaScript 提取字符串中的数字</title>
+      <link href="/2019/12/24/JavaScript%20%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+      <url>/2019/12/24/JavaScript%20%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<ol><li><p>前面带数字,后面非数字,可以直接用parseFloat()函数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="built_in">parseFloat</span>(<span class="string">"2.89元"</span>); <span class="comment">// num : 2.89</span></span><br></pre></td></tr></table></figure></li><li><p>字符串中只含有一个整型数值的字符串,直接使用正则表达式将数字的字符删除</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'生于1999年'</span>;</span><br><span class="line"><span class="keyword">let</span> num = str1.replace(<span class="regexp">/[^\d]/g</span>,<span class="string">' '</span>); <span class="comment">// num : 1999</span></span><br></pre></td></tr></table></figure></li><li><p>字符串中含有多数值,使用字符串的match方法,通过正则表达式提取字符串的所有数字(包含整数和小数)</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'大米:2.57斤/元,白菜:3.65元/斤'</span>;</span><br><span class="line"><span class="keyword">let</span> arr = str.match(<span class="regexp">/\d+(.\d+)?/g</span>);   <span class="comment">// arr: ["2.75","3.65"]</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Test </category>
+          <category> 前端搬砖 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> test </tag>
+            <tag> JavaScript </tag>
             
         </tags>
       
