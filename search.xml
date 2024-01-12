@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>React 实现带回调函数的useState</title>
+      <link href="/2020/04/24/React%20%E5%AE%9E%E7%8E%B0%E5%B8%A6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84useState/"/>
+      <url>/2020/04/24/React%20%E5%AE%9E%E7%8E%B0%E5%B8%A6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84useState/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-useCallbackState-定义"><a href="#1-useCallbackState-定义" class="headerlink" title="1 useCallbackState 定义"></a>1 useCallbackState 定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useEffect, useState, useRef &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> useCallbackState = <span class="function">(<span class="params">od</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> cbRef = useRef();</span><br><span class="line">    <span class="keyword">const</span> [data, setData] = useState(od);</span><br><span class="line"></span><br><span class="line">    useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        cbRef.current &amp;&amp; cbRef.current(data);</span><br><span class="line">    &#125;, [data]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [data, <span class="function"><span class="keyword">function</span> (<span class="params">d, callback</span>) </span>&#123;</span><br><span class="line">        cbRef.current = callback;</span><br><span class="line">        setData(d);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useCallbackState</span><br></pre></td></tr></table></figure><h2 id="2-useCallbackState-使用"><a href="#2-useCallbackState-使用" class="headerlink" title="2 useCallbackState 使用"></a>2 useCallbackState 使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> useCallbackState <span class="keyword">from</span> <span class="string">"./useCallbackState"</span>;</span><br><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [data, setData] = useCallbackState(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        setData(data + <span class="number">1</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"回调"</span>, data);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;button onClick=&#123;handleClick&#125;&gt;+<span class="number">1</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> React自定义hooks </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React 实现纯前端生成并导出Excel文件</title>
+      <link href="/2020/03/24/React%20%E5%AE%9E%E7%8E%B0%E7%BA%AF%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90%E5%B9%B6%E5%AF%BC%E5%87%BAExcel%E6%96%87%E4%BB%B6/"/>
+      <url>/2020/03/24/React%20%E5%AE%9E%E7%8E%B0%E7%BA%AF%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90%E5%B9%B6%E5%AF%BC%E5%87%BAExcel%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>npm install js-export-excel</p><h2 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ExportJsonExcel <span class="keyword">from</span> <span class="string">"js-export-excel"</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">"react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; Table, Button  &#125; <span class="keyword">from</span> <span class="string">"antd"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Excel = <span class="function"><span class="params">()</span> =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [dataTable,setDataTable] = useState(<span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">const</span> columns = [</span><br><span class="line">        &#123;</span><br><span class="line">            title: <span class="string">"名称"</span>,</span><br><span class="line">            dataIndex: <span class="string">"name"</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: <span class="string">"编号"</span>,</span><br><span class="line">            dataIndex: <span class="string">"number"</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: <span class="string">"方案"</span>,</span><br><span class="line">            dataIndex: <span class="string">"programme"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    useEffect(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.fetch(<span class="string">"http://localhost:3001/dataTable"</span>)</span><br><span class="line">        .then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> response.json()</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;setDataTable(res)&#125;)</span><br><span class="line">    &#125;,[])</span><br><span class="line">    <span class="keyword">const</span> downloadFileToExcel = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> option = &#123;&#125;;  <span class="comment">//option代表的就是excel文件</span></span><br><span class="line">        option.fileName = <span class="string">"demo表"</span>;  <span class="comment">//excel文件名称</span></span><br><span class="line">        option.datas = [</span><br><span class="line">            &#123;</span><br><span class="line">                sheetData: dataTable,  <span class="comment">//excel文件中的数据源</span></span><br><span class="line">                sheetName: <span class="string">"demo"</span>,  <span class="comment">//excel文件中sheet页名称</span></span><br><span class="line">                sheetFilter: [<span class="string">"name"</span>, <span class="string">"number"</span>, <span class="string">"programme"</span>],  <span class="comment">//excel文件中需显示的列数据</span></span><br><span class="line">                sheetHeader:[<span class="string">"名称"</span>, <span class="string">"编号"</span>, <span class="string">"方案"</span>]  <span class="comment">//excel文件中每列的表头名称</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">        <span class="keyword">let</span> toExcel = <span class="keyword">new</span> ExportJsonExcel(option);  <span class="comment">//生成excel文件</span></span><br><span class="line">        toExcel.saveExcel();  <span class="comment">//下载excel文件</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;Table columns=&#123;columns&#125; dataSource=&#123;dataTable&#125; rowKey=&#123;(record)=&gt;record.id&#125;/&gt;</span><br><span class="line">            &lt;Button type=<span class="string">"primary"</span> onClick=&#123;downloadFileToExcel&#125;&gt;生成Excel&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Excel</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> React第三方库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决 replace( ) 只能替换一次</title>
       <link href="/2019/12/26/%E8%A7%A3%E5%86%B3%20replace(%20)%20%E5%8F%AA%E8%83%BD%E6%9B%BF%E6%8D%A2%E4%B8%80%E6%AC%A1/"/>
       <url>/2019/12/26/%E8%A7%A3%E5%86%B3%20replace(%20)%20%E5%8F%AA%E8%83%BD%E6%9B%BF%E6%8D%A2%E4%B8%80%E6%AC%A1/</url>
@@ -34,6 +84,31 @@
       <url>/2019/12/24/JavaScript%20%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97/</url>
       
         <content type="html"><![CDATA[<ol><li><p>前面带数字,后面非数字,可以直接用parseFloat()函数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="built_in">parseFloat</span>(<span class="string">"2.89元"</span>); <span class="comment">// num : 2.89</span></span><br></pre></td></tr></table></figure></li><li><p>字符串中只含有一个整型数值的字符串,直接使用正则表达式将数字的字符删除</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'生于1999年'</span>;</span><br><span class="line"><span class="keyword">let</span> num = str1.replace(<span class="regexp">/[^\d]/g</span>,<span class="string">' '</span>); <span class="comment">// num : 1999</span></span><br></pre></td></tr></table></figure></li><li><p>字符串中含有多数值,使用字符串的match方法,通过正则表达式提取字符串的所有数字(包含整数和小数)</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'大米:2.57斤/元,白菜:3.65元/斤'</span>;</span><br><span class="line"><span class="keyword">let</span> arr = str.match(<span class="regexp">/\d+(.\d+)?/g</span>);   <span class="comment">// arr: ["2.75","3.65"]</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端搬砖 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sort()的数字排序的坑</title>
+      <link href="/2019/10/24/sort()%E7%9A%84%E6%95%B0%E5%AD%97%E6%8E%92%E5%BA%8F%E7%9A%84%E5%9D%91/"/>
+      <url>/2019/10/24/sort()%E7%9A%84%E6%95%B0%E5%AD%97%E6%8E%92%E5%BA%8F%E7%9A%84%E5%9D%91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-sort-简介"><a href="#1-sort-简介" class="headerlink" title="1 sort()简介"></a>1 sort()简介</h2><p>● sort()方法用于对数组的元素进行升序的排序，准确来说是按照字符编码的顺序进行排序，所以针对数字数组sort()的排序并不准确</p><p>● sort()方法可以接收一个参数，这个参数就是传说中的比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字</p><p>● sort()会改变原有数组，不会返回新的数组或值</p><h2 id="2-sort-对数字排序"><a href="#2-sort-对数字排序" class="headerlink" title="2 sort()对数字排序"></a>2 sort()对数字排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">23</span>,<span class="number">1</span>,<span class="number">500</span>,<span class="number">116</span>];</span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b) <span class="comment">// [1,23,116,500]</span></span><br></pre></td></tr></table></figure><h2 id="3-sort-按首字母排序汉字"><a href="#3-sort-按首字母排序汉字" class="headerlink" title="3 sort()按首字母排序汉字"></a>3 sort()按首字母排序汉字</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">"上海"</span>, <span class="string">"大连"</span>, <span class="string">"北京"</span>, <span class="string">"拉萨"</span>];</span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.localeCompare(b)); <span class="comment">// ['北京', '大连', '拉萨', '上海']</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
